@@ -1,8 +1,7 @@
 <footer class="site-footer">
-  <div class="site-footer-inner">
-    <p>&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?></p>
-  </div>
+  <?php echo meadowlark_component_by_role('footer'); ?>
 </footer>
+
 
 <?php wp_footer(); ?>
 </body>
