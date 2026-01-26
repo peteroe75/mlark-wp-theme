@@ -105,3 +105,6 @@ if (!mlark_page_exists_by_title('Welcome', 'page')) {
         update_option('page_on_front', $page_id);
     }
 }
+
+    });
+
