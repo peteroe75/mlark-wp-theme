@@ -8,9 +8,5 @@
 <body <?php body_class(); ?>>
 
 <header class="site-header">
-  <div class="site-header-inner">
-    <a href="<?php echo esc_url(home_url('/')); ?>">
-      <?php bloginfo('name'); ?>
-    </a>
-  </div>
+  <?php echo meadowlark_component_by_role('header'); ?>
 </header>
