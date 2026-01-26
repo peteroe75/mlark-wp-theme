@@ -26,3 +26,30 @@ function meadowlark_component(string $slug): string {
     if (!$post) return '';
     return apply_filters('the_content', $post->post_content);
 }
+
+add_action('updated_post_meta', function (
+    $meta_id,
+    $post_id,
+    $meta_key,
+    $meta_value
+) {
+
+    // Only care about our CPT
+    if (get_post_type($post_id) !== 'component') {
+        return;
+    }
+
+    // Only care about role changes
+    if ($meta_key !== 'component_role') {
+        return;
+    }
+
+    /**
+     * FRONTEND HOOK
+     *
+     * Fires when a component role changes.
+     * Use this to clear caches, rebuild state, etc.
+     */
+    do_action('meadowlark_component_role_changed', $post_id, $meta_value);
+
+}, 10, 4);
