@@ -79,18 +79,18 @@ add_action('after_switch_theme', function () {
         ]);
     }
 
-    /*
-     * -------------------------
-     * Homepage
-     * -------------------------
-     */
-    if (!get_page_by_title('Welcome')) {
+  /*
+ * -------------------------
+ * Homepage
+ * -------------------------
+ */
+if (!mlark_page_exists_by_title('Welcome', 'page')) {
 
-        $page_id = wp_insert_post([
-            'post_type'   => 'page',
-            'post_title'  => 'Welcome',
-            'post_status' => 'publish',
-            'post_content'=> '
+    $page_id = wp_insert_post([
+        'post_type'   => 'page',
+        'post_title'  => 'Welcome',
+        'post_status' => 'publish',
+        'post_content'=> '
 <section class="section hero">
   <h1>Welcome</h1>
   <p>This site uses a document-first theme.</p>
@@ -98,12 +98,10 @@ add_action('after_switch_theme', function () {
 
 <!-- COMPONENT: demo-component -->
 ',
-        ]);
+    ]);
 
-        if ($page_id && !is_wp_error($page_id)) {
-            update_option('show_on_front', 'page');
-            update_option('page_on_front', $page_id);
-        }
+    if ($page_id && !is_wp_error($page_id)) {
+        update_option('show_on_front', 'page');
+        update_option('page_on_front', $page_id);
     }
-
-});
+}
