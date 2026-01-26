@@ -18,6 +18,15 @@ add_editor_style('style.css');
 add_theme_support('title-tag');
 
 
+// Register Demo Header/Foot
+require_once get_template_directory() . '/mlark-components/seed.php';
+
+
+// Load component system
+require_once get_template_directory() . '/mlark-components/cpt.php';
+require_once get_template_directory() . '/mlark-components/render.php';
+
+
 // Enable block editor features we actually want
 add_action('after_setup_theme', function () {
 
@@ -67,5 +76,6 @@ add_action('init', function () {
     );
 
 });
+
 
 
