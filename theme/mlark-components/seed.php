@@ -84,7 +84,16 @@ add_action('after_switch_theme', function () {
  * Homepage
  * -------------------------
  */
-if (!mlark_page_exists_by_title('Welcome', 'page')) {
+$existing = get_posts([
+    'post_type'   => 'page',
+    'post_status' => 'any',
+    'title'       => 'Welcome',
+    'numberposts' => 1,
+    'fields'      => 'ids',
+]);
+
+if (!$existing) {
+
 
     $page_id = wp_insert_post([
         'post_type'   => 'page',
