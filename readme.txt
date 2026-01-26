@@ -1,15 +1,12 @@
-This theme is setup to allow you to create a wp site with HTML/JS pages.
+This is a very basic wordpress theme that allows you to build with html/css/js nativly in WP.
 
-functions.php registers wp hooks and varrious other small things to make a blank install look like a site.
+It gives you a header, footer, and component post to get started. 
 
-header/footer.php are simply backend. 
+The header, and footer components are special. they can only be single at any point in time. They are called directly from the theme header and footer templates. 
 
-page.php renders "the content" and the graphical header and footer. 
+The philosiphy is that you create pages on the component level with html/css/js, any global css changes are ammended to customizer or theme file outside of stock styles.css. Any advanced functions are built as plugins. 
 
-styles.css is baseline, all extra is to be added in customizer, or seprate file, or on page. 
+This was coded by an LLM under my direction, I believe this system lends itself to the use of LLM HTML/CSS/JS frontend as I have been seeing become relivent again in websites. 
 
-Any advanced php functionaity is to be build as plugins. 
 
-This allows you to "hardcode" a wp site with minimal effort or advanced php knowlege. 
-
-Ai is used becaues honesty lets be real its going this way. The code Ai writes is readable by anyone. And it works. 
+Peter Roe
