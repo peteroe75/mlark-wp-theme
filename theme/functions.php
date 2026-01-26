@@ -31,3 +31,41 @@ add_action('after_setup_theme', function () {
     // Wide/full alignment (optional but useful)
     add_theme_support('align-wide');
 });
+
+add_action('init', function () {
+
+    register_block_style('core/group', [
+        'name'  => 'section',
+        'label' => 'Section',
+    ]);
+
+    register_block_style('core/group', [
+        'name'  => 'section-tight',
+        'label' => 'Section (Tight)',
+    ]);
+
+    register_block_style('core/group', [
+        'name'  => 'section-dark',
+        'label' => 'Section (Dark)',
+    ]);
+});
+
+add_action('init', function () {
+
+    register_block_pattern(
+        'meadowlark/hero',
+        [
+            'title'   => 'Hero Section',
+            'content' => '
+<!-- HERO -->
+<div class="wp-block-group is-style-section">
+  <h1>Hero headline</h1>
+  <p>Supporting copy goes here.</p>
+</div>
+'
+        ]
+    );
+
+});
+
+
