@@ -120,7 +120,3 @@ add_action('save_post_component', function ($post_id) {
     update_post_meta($post_id, 'component_role', $role);
 
 });
-
-    }
-
-});
