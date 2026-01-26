@@ -8,5 +8,7 @@
 <body <?php body_class(); ?>>
 
 <header class="site-header">
-  <?php echo meadowlark_component_by_role('header'); ?>
+  <?php if (function_exists('meadowlark_component_by_role')) {
+    echo meadowlark_component_by_role('header'); }
+?>
 </header>
