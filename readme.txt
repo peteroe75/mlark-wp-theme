@@ -1,6 +1,8 @@
 ![Hero screenshot](always-has-been.jpg)
 
 
+
+
 This is a very basic wordpress theme that allows you to build with html/css/js nativly in WP.
 
 It gives you a header, footer, and component post to get started. 
