@@ -1,11 +1,11 @@
-##No More Page Builders!
+## No More Page Builders!
 
 ![Hero screenshot](https://raw.githubusercontent.com/peteroe75/mlark-wp-theme/main/always-has-been.jpg)
 
 
 
 
-#MEADOWLARK IT SKELETON WP THEME
+# MEADOWLARK IT SKELETON WP THEME
 
 This is a very basic wordpress theme that allows you to build with html/css/js nativly in WP.
 
