@@ -1,4 +1,4 @@
-![Hero screenshot](always-has-been.jpg)
+![Hero screenshot](https://github.com/peteroe75/mlark-wp-theme/blob/main/always-has-been.jpg)
 
 
 
