@@ -1,8 +1,9 @@
 <footer class="site-footer">
-  <?php
+<div class="mlark-wrap">
+        <?php
 if (function_exists('meadowlark_component_by_role')) {
     echo meadowlark_component_by_role('footer');
-} ?>
+} ?></div>
 </footer>
 
 
