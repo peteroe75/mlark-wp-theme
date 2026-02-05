@@ -1,13 +1,11 @@
 <?php
 
+
 // Enqueue styles
 add_action('wp_enqueue_scripts', function () {
-    wp_enqueue_style(
-        'meadowlark-style',
-        get_stylesheet_uri(),
-        [],
-        wp_get_theme()->get('Version')
-    );
+    wp_enqueue_style('mlark-base', get_stylesheet_uri(), [], '0.1');
+    wp_enqueue_style('mlark-site', get_theme_file_uri('assets/site.css'), ['mlark-base'], '0.1');
+    wp_enqueue_style('mlark-headfoot', get_theme_file_uri('assets/headfoot.css'), ['mlark-site'], '0.1');
 });
 
 // Editor styles (orientation only)
@@ -21,6 +19,8 @@ add_theme_support('title-tag');
 // Register Demo Header/Foot
 require_once get_template_directory() . '/mlark-components/seed.php';
 
+// Load Blocks with Components
+require_once get_template_directory() . '/mlark-components/editor.php';
 
 // Load component system
 require_once get_template_directory() . '/mlark-components/cpt.php';
@@ -79,3 +79,19 @@ add_action('init', function () {
 
 
 
+add_action('after_setup_theme', function () {
+    add_editor_style('style.css');
+});
+
+add_action('enqueue_block_editor_assets', function () {
+    wp_enqueue_style(
+        'mlark-editor',
+        get_theme_file_uri('/assets/admin-editor.css'),
+        [],
+        '1.0'
+    );
+});
+
+add_action('after_setup_theme', function () {
+    add_theme_support('post-thumbnails');
+});
