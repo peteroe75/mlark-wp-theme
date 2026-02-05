@@ -110,13 +110,18 @@ add_action('save_post_component', function ($post_id) {
 
     if (!isset($_POST['component_role'])) return;
 
-    $role = sanitize_text_field($_POST['component_role']);
+   $role = sanitize_text_field($_POST['component_role']);
 
-    if (!in_array($role, ['header', 'footer', 'section'], true)) {
-        delete_post_meta($post_id, 'component_role');
-        return;
-    }
+if ($role === '') {
+    delete_post_meta($post_id, 'component_role');
+    return;
+}
 
-    update_post_meta($post_id, 'component_role', $role);
+if (!in_array($role, ['header', 'footer', 'section'], true)) {
+    return;
+}
+
+update_post_meta($post_id, 'component_role', $role);
+
 
 });
