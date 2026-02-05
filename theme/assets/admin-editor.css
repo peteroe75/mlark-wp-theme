@@ -1,0 +1,14 @@
+.editor-visual-editor {
+                width:1200px;
+        margin:0 auto;
+}
+
+
+.editor-styles-wrapper {
+  font-family: inherit;
+  line-height: inherit;
+}
+
+.editor-styles-wrapper .wp-block {
+  max-width: none;
+}
