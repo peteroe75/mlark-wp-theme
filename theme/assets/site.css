@@ -1,1 +1,126 @@
-This is where site css goes
+/* =========================================================
+   Site Presentation Layer
+   This file is allowed to change.
+   ========================================================= */
+
+:root {
+  --site-header-bg: none;
+}
+
+/* =========================================================
+   3. Layout primitives
+   ========================================================= */
+
+.mlark-wrap {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* =========================================================
+   Full-width breakout helper
+   ========================================================= */
+
+.full-width {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+.home-section .mlark-wrap {
+        width: 100vw;
+}
+/* =========================================================
+   Header / Footer
+   ========================================================= */
+
+.site-header,
+.site-footer {
+  background: #f5f5f5;
+}
+
+.site-header .site-header--hero {
+  background: transparent;
+}
+
+.site-header-inner,
+.site-footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+}
+
+/* =========================================================
+   Main Content Shell
+   ========================================================= */
+
+#content {
+ position:relative;
+        display: block;
+        z-index:2;
+}
+
+/* =========================================================
+   Sections (design system choice)
+   ========================================================= */
+
+.section,
+.wp-block-group.is-style-section {
+  padding: 4rem 1.5rem;
+}
+
+.wp-block-group.is-style-section-tight {
+  padding: 2rem 1.5rem;
+}
+
+.wp-block-group.is-style-section-dark {
+  padding: 4rem 1.5rem;
+  background: #111;
+  color: #fff;
+}
+
+.wp-block-group.is-style-section-dark a {
+  color: #fff;
+}
+
+/* Optional separation between sections */
+.section + .section,
+.wp-block-group.is-style-section + .wp-block-group.is-style-section {
+  border-top: 1px solid #eee;
+}
+
+/* =========================================================
+   Section inner constraint
+   ========================================================= */
+
+.section > *,
+.wp-block-group.is-style-section > * {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* =========================================================
+   Archives & Post Lists (WordPress-specific)
+   ========================================================= */
+
+.archive-header {
+  padding: 2rem 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
+.archive-list {
+  padding: 2rem 1.5rem;
+}
+
+.archive-item {
+  margin-bottom: 2rem;
+}
+
+.archive-item h2 {
+  margin-bottom: 0.25em;
+}
+
+.archive-pagination {
+  padding: 2rem 1.5rem;
+}
