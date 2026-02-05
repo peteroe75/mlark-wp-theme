@@ -32,23 +32,22 @@ add_action('init', function () {
         if ($content === '') continue;
 
         // COPY
-        register_block_pattern(
-            "meadowlark/component-copy-{$slug}",
-            [
-                'title'      => "Component: {$title}",
-                'categories' => ['meadowlark'],
-                'postTypes'  => ['post', 'page'],
-                'content'    => <<<HTML
+      register_block_pattern(
+    "meadowlark/component-copy-{$slug}",
+    [
+        'title'      => "Component: {$title}",
+        'categories' => ['meadowlark'],
+        'postTypes'  => ['post', 'page'],
+        'content'    => <<<HTML
 <!-- wp:group {"className":"is-style-section"} -->
 <div class="wp-block-group is-style-section">
-<!-- wp:html -->
-{$content}
-<!-- /wp:html -->
+{$component->post_content}
 </div>
 <!-- /wp:group -->
 HTML
-            ]
-        );
+    ]
+);
+
 
         // LIVE
         register_block_pattern(
