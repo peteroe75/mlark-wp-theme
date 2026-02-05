@@ -38,13 +38,7 @@ add_action('init', function () {
         'title'      => "Component: {$title}",
         'categories' => ['meadowlark'],
         'postTypes'  => ['post', 'page'],
-        'content'    => <<<HTML
-<!-- wp:group {"className":"is-style-section"} -->
-<div class="wp-block-group is-style-section">
-{$component->post_content}
-</div>
-<!-- /wp:group -->
-HTML
+        'content'    => $component->post_content,
     ]
 );
 
@@ -52,18 +46,12 @@ HTML
         // LIVE
         register_block_pattern(
             "meadowlark/component-live-{$slug}",
-            [
-                'title'      => "Component (Live): {$title}",
-                'categories' => ['meadowlark'],
-                'postTypes'  => ['post', 'page'],
-                'content'    => <<<HTML
-<!-- wp:group {"className":"is-style-section"} -->
-<div class="wp-block-group is-style-section">
-[component slug="{$slug}"]
-</div>
-<!-- /wp:group -->
-HTML
-            ]
+           [
+        'title'      => "Component (Live): {$title}",
+        'categories' => ['meadowlark'],
+        'postTypes'  => ['post', 'page'],
+        'content'    => "[component slug=\"{$slug}\"]",
+    ]
         );
     }
 });
