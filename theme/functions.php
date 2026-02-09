@@ -179,6 +179,11 @@ add_action('admin_notices', function () {
             <code>[component]</code> shortcode.
         </p>
 
+ <p>
+         <strong><code>[component]</code>s are insertable into pages/posts within the PATTERN section of the block editor</strong>
+            
+        </p>
+        
         <p>
             JavaScript and CSS saved to the <strong>Component</strong> post type will render
             correctly on the frontend and within the Component editor.
