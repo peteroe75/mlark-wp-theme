@@ -49,7 +49,7 @@ add_action('after_switch_theme', function () {
             'post_name'   => 'site-footer',
             'post_status' => 'publish',
             'post_content'=> '
-<p> <3 2026 - Meadowlark IT - Peter Roe</p>
+<p> ❤️ 2026 - Meadowlark IT - Peter Roe</p>
 ',
         ]);
 
