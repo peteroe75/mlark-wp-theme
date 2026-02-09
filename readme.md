@@ -18,7 +18,7 @@ Agentic and normal AI mathematically will be able to use this model—and alread
 
 It also allows the old-hat web developers to build how they want in HTML/CSS/JS without the baggage of a builder or theme framework.
 
-#INSTALL VIDEO: https://youtu.be/qTST4AvZrDg
+# INSTALL VIDEO: https://youtu.be/qTST4AvZrDg
 
 ---
 
