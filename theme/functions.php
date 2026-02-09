@@ -1,5 +1,10 @@
 <?php
 
+// Allow inline JS
+remove_filter('the_content', 'wpautop');
+remove_filter('the_content', 'wptexturize');
+
+
 
 // Enqueue styles
 add_action('wp_enqueue_scripts', function () {
