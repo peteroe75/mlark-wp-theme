@@ -53,3 +53,30 @@ add_action('updated_post_meta', function (
     do_action('meadowlark_component_role_changed', $post_id, $meta_value);
 
 }, 10, 4);
+
+
+
+add_shortcode('component', function ($atts) {
+
+    $atts = shortcode_atts([
+        'slug' => '',
+    ], $atts);
+
+    if (!$atts['slug']) {
+        return '';
+    }
+
+    $component = get_page_by_path(
+        sanitize_title($atts['slug']),
+        OBJECT,
+        'component'
+    );
+
+    if (!$component || $component->post_status !== 'publish') {
+        return '';
+    }
+
+    // IMPORTANT:
+    // Use the_content so blocks render correctly
+    return apply_filters('the_content', $component->post_content);
+});
