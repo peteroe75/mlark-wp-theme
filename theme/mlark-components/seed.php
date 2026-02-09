@@ -63,14 +63,14 @@ add_action('after_switch_theme', function () {
      * Demo Component
      * -------------------------
      */
-    if (!get_page_by_path('demo-component', OBJECT, 'component')) {
+if (!get_page_by_path('demo-component', OBJECT, 'component')) {
 
-        wp_insert_post([
-            'post_type'   => 'component',
-            'post_title'  => 'Demo Component',
-            'post_name'   => 'section',
-            'post_status' => 'publish',
-            'post_content' => <<<HTML
+    $id = wp_insert_post([
+        'post_type'   => 'component',
+        'post_title'  => 'Demo Component',
+        'post_name'   => 'demo-component',
+        'post_status' => 'publish',
+        'post_content' => <<<HTML
 <section class="section">
   <h2>Demo Component</h2>
 
@@ -109,10 +109,14 @@ add_action('after_switch_theme', function () {
 </script>
 </section>
 HTML
-    
-        ]);
-    }
+,
+    ]);
 
+    if ($id && !is_wp_error($id)) {
+        update_post_meta($id, 'component_role', 'section');
+    }
+}
+    
   /*
  * -------------------------
  * Homepage
