@@ -2,11 +2,7 @@
 defined('ABSPATH') || exit;
 
 /**
- * Trusted component renderer
- *
- * - Admins (unfiltered_html) get raw output (inline JS allowed)
- * - Everyone else gets sanitized HTML
- * - No global filters touched
+ * Component renderer
  */
 function meadowlark_render_component_post(WP_Post $post): string {
     return $post->post_content;
