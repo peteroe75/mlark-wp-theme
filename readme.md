@@ -12,7 +12,7 @@ Page/post content is saved on a per-item basis to the database. You simply paste
 
 This allows LLM-based HTML/CSS/JS to be directly pasted into the editor. While this sounds primitive, you can establish agentic workflows to this modular setup very easily.
 
-It keeps the entire site codebase compartmentalized in the database. Because this is WordPress, you get the vast existing ecosystem, but now the frontend can return to native primitive web languages.
+It keeps the entire frontend HTML codebase compartmentalized in the database (like page builders). Because this is WordPress, you get the vast existing ecosystem, but now the frontend can return to native primitive web languages.
 
 Agentic and normal AI mathematically will be able to use this model—and already are for my company—to write large complex frontend codebases in stable web languages, predictively and consistently.
 
