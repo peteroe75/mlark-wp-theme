@@ -1,9 +1,16 @@
 /*
-Theme Name: Meadowlark Base
+Theme Name: Meadowlark IT Skeleton
+Theme URI: https://github.com/peteroe75/mlark-wp-theme
 Author: Meadowlark IT
-Description: Minimal structural theme. Content lives in the DB. Presentation lives elsewhere.
-Version: 0.1
+Author URI: https://meadowlarkit.com
+Description: A minimal WordPress theme designed for direct authoring of HTML, CSS, and JavaScript in posts and pages. Built for experienced users who prefer native web primitives over page builders, with a lightweight, static theme foundation.
+Version: 1.2
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: meadowlark-it-skeleton
+Tags: custom-html, minimal, developer-tools, static, no-page-builder
 */
+
 
 /* =========================================================
    1. Reset / Base (non-negotiable)
