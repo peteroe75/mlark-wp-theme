@@ -1,51 +1,52 @@
 <?php
 
-// Allow inline JS
-remove_filter('the_content', 'wpautop');
-remove_filter('the_content', 'wptexturize');
-
-
-
-// Enqueue styles
+/**
+ * Frontend styles
+ */
 add_action('wp_enqueue_scripts', function () {
     wp_enqueue_style('mlark-base', get_stylesheet_uri(), [], '0.1');
     wp_enqueue_style('mlark-site', get_theme_file_uri('assets/site.css'), ['mlark-base'], '0.1');
     wp_enqueue_style('mlark-headfoot', get_theme_file_uri('assets/headfoot.css'), ['mlark-site'], '0.1');
 });
 
-// Editor styles (orientation only)
-add_theme_support('editor-styles');
-add_editor_style('style.css');
+/**
+ * Theme supports
+ */
+add_action('after_setup_theme', function () {
 
-// Title tag support
-add_theme_support('title-tag');
+    // Let WordPress manage <title>
+    add_theme_support('title-tag');
 
+    // Block editor alignment
+    add_theme_support('align-wide');
 
-// Register Demo Header/Foot
+    // Featured images
+    add_theme_support('post-thumbnails');
+});
+
+/**
+ * Block editor styles (iframe-safe)
+ */
+add_action('enqueue_block_editor_assets', function () {
+    wp_enqueue_style(
+        'mlark-editor-css',
+        get_theme_file_uri('/assets/admin-editor.css'),
+        [],
+        '1.0'
+    );
+});
+
+/**
+ * Component system
+ */
 require_once get_template_directory() . '/mlark-components/seed.php';
-
-// Load Blocks with Components
 require_once get_template_directory() . '/mlark-components/editor.php';
-
-// Load component system
 require_once get_template_directory() . '/mlark-components/cpt.php';
 require_once get_template_directory() . '/mlark-components/render.php';
 
-
-// Enable block editor features we actually want
-add_action('after_setup_theme', function () {
-
-    // Let WP manage title tags
-    add_theme_support('title-tag');
-
-    // Editor styles (orientation only)
-    add_theme_support('editor-styles');
-    add_editor_style('style.css');
-
-    // Wide/full alignment (optional but useful)
-    add_theme_support('align-wide');
-});
-
+/**
+ * Block styles
+ */
 add_action('init', function () {
 
     register_block_style('core/group', [
@@ -64,6 +65,9 @@ add_action('init', function () {
     ]);
 });
 
+/**
+ * Example pattern
+ */
 add_action('init', function () {
 
     register_block_pattern(
@@ -79,24 +83,4 @@ add_action('init', function () {
 '
         ]
     );
-
-});
-
-
-
-add_action('after_setup_theme', function () {
-    add_editor_style('style.css');
-});
-
-add_action('enqueue_block_editor_assets', function () {
-    wp_enqueue_style(
-        'mlark-editor',
-        get_theme_file_uri('/assets/admin-editor.css'),
-        [],
-        '1.0'
-    );
-});
-
-add_action('after_setup_theme', function () {
-    add_theme_support('post-thumbnails');
 });
