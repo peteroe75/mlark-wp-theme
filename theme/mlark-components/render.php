@@ -9,13 +9,9 @@ defined('ABSPATH') || exit;
  * - No global filters touched
  */
 function meadowlark_render_component_post(WP_Post $post): string {
-
-    if (current_user_can('unfiltered_html')) {
-        return $post->post_content;
-    }
-
-    return wp_kses_post($post->post_content);
+    return $post->post_content;
 }
+
 
 /**
  * Render component by role (header, footer, section)
