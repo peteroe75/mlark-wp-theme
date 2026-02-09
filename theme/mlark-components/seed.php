@@ -24,10 +24,12 @@ add_action('after_switch_theme', function () {
             'post_name'   => 'site-header',
             'post_status' => 'publish',
             'post_content'=> '
+<!-- wp:html -->
 <nav class="site-nav">
   <a href="/">Home</a>
   <a href="/about">About</a>
 </nav>
+<!-- /wp:html -->
 ',
         ]);
 
@@ -49,8 +51,12 @@ add_action('after_switch_theme', function () {
             'post_name'   => 'site-footer',
             'post_status' => 'publish',
             'post_content'=> '
+<!-- wp:html -->
 <p> ❤️ 2026 - Meadowlark IT - Peter Roe</p>
-',
+<!-- /wp:html -->
+'
+			
+			,
         ]);
 
         if ($id && !is_wp_error($id)) {
@@ -71,6 +77,8 @@ if (!get_page_by_path('demo-component', OBJECT, 'component')) {
         'post_name'   => 'demo-component',
         'post_status' => 'publish',
         'post_content' => <<<HTML
+
+<!-- wp:html -->
 <section class="section">
   <h2>Demo Component</h2>
 
@@ -108,6 +116,8 @@ if (!get_page_by_path('demo-component', OBJECT, 'component')) {
 })();
 </script>
 </section>
+<!-- /wp:html -->
+
 HTML
 ,
     ]);
@@ -138,11 +148,12 @@ if (!$existing) {
         'post_title'  => 'Welcome',
         'post_status' => 'publish',
         'post_content'=> '
+<!-- wp:html -->
 <section class="section hero">
   <h1>Welcome</h1>
   <p>This site uses a document-first theme.</p>
 </section>
-
+<!-- /wp:html -->
 [component slug="demo-component"]
 
 ',
@@ -155,4 +166,3 @@ if (!$existing) {
 }
 
     });
-
