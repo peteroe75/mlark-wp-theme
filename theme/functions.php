@@ -84,3 +84,114 @@ add_action('init', function () {
         ]
     );
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Show one-time activation notice
+ */
+add_action('after_switch_theme', function () {
+    update_option('mlark_show_activation_notice', true);
+});
+
+/**
+ * Render activation notice
+ */
+add_action('admin_notices', function () {
+
+    if (!get_option('mlark_show_activation_notice')) {
+        return;
+    }
+
+    // Only show in admin, not during AJAX
+    if (!is_admin() || wp_doing_ajax()) {
+        return;
+    }
+
+    ?>
+    <div class="notice notice-success is-dismissible">
+        <p><strong>Welcome to Meadowlark Skeleton Theme</strong></p>
+
+        <p>
+            This theme is designed for building sites with native HTML, CSS, and JavaScript —
+            without page builders.
+        </p>
+
+        <p>
+            <strong>Important note:</strong><br>
+            When content is copied into pages or posts, WordPress removes JavaScript and CSS tags
+            as part of standard content handling.
+        </p>
+
+        <p>
+            Sections that include JavaScript or CSS should be saved as
+            <strong>Components</strong> and inserted using the
+            <strong>Live Component</strong> pattern or the
+            <code>[component]</code> shortcode.
+        </p>
+
+        <p>
+            JavaScript and CSS saved to the <strong>Component</strong> post type will render
+            correctly on the frontend and within the Component editor.
+        </p>
+
+        <p>
+            Other than that — copy, paste, experiment, and build.<br>
+            <em>Return to primitives. Have fun.</em>
+        </p>
+    </div>
+    <?php
+
+    // Ensure it only shows once
+    delete_option('mlark_show_activation_notice');
+});
+
