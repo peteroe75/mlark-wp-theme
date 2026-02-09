@@ -37,8 +37,9 @@ add_action('init', function () {
     [
         'title'      => "Component: {$title}",
         'categories' => ['meadowlark'],
-        'postTypes'  => ['post', 'page'],
-        'content'    => $component->post_content,
+        'description' => 'Live reference to a Component. JavaScript and CSS are rendered from the Component editor and cannot be edited inline.',
+		'postTypes'  => ['post', 'page'],
+        'content' => wp_kses_post($component->post_content),
     ]
 );
 
@@ -49,9 +50,10 @@ add_action('init', function () {
            [
         'title'      => "Component (Live): {$title}",
         'categories' => ['meadowlark'],
-        'postTypes'  => ['post', 'page'],
+		'postTypes'  => ['post', 'page'],
         'content'    => "[component slug=\"{$slug}\"]",
     ]
         );
     }
 });
+
