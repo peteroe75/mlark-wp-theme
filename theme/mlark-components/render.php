@@ -60,5 +60,5 @@ add_shortcode('component', function ($atts) {
 });
 
 
-?>
+
 
