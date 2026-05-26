@@ -1,4 +1,5 @@
 # No More Page Builders!
+Tested with PHP 8.3/ WP 7.0
 
 ## MEADOWLARK IT SKELETON WP THEME
 
