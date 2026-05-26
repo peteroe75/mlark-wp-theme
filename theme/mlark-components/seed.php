@@ -80,41 +80,75 @@ if (!get_page_by_path('demo-component', OBJECT, 'component')) {
 
 <!-- wp:html -->
 <section class="section">
-  <h2>Demo Component</h2>
 
-<style>
-  .ml-proof {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-    margin: 4rem auto;
-    max-width: 720px;
-    padding: 2rem;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #0f172a, #020617);
-    color: #e5e7eb;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-  }
-</style>
+  <style>
+    .ml-proof {
+      font-family: system-ui, sans-serif;
+      margin: 4rem auto;
+      max-width: 720px;
+      padding: 2rem;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #0f172a, #020617);
+      color: #e5e7eb;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
 
-<div class="ml-proof">
-  <h2>No Builder. No Block. No Lies.</h2>
-  <button id="ml-proof-btn">Run JavaScript</button>
-  <div class="status" id="ml-proof-status">JS status: waiting…</div>
-</div>
+    .status {
+      margin-top: 1rem;
+      opacity: 0.8;
+    }
+  </style>
 
-<script>
-(function () {
-  const btn = document.getElementById('ml-proof-btn');
-  const status = document.getElementById('ml-proof-status');
+  <div class="ml-proof">
 
-  if (!btn || !status) return;
+    <h2>No Builder. No Block. No Lies.</h2>
 
-  btn.addEventListener('click', () => {
-    const now = new Date().toLocaleTimeString();
-    status.textContent = 'JS status: executed at ' + now;
-    console.log('[Meadowlark] Inline JS executed at', now);
-  });
-})();
-</script>
+    <button data-ml-action="proof-run">
+      Run JavaScript
+    </button>
+
+    <div class="status">
+      JS status: waiting…
+    </div>
+
+  </div>
+
+  <script>
+
+    document.addEventListener('click', (e) => {
+
+      const trigger =
+        e.target.closest(
+          '[data-ml-action="proof-run"]'
+        );
+
+      if (!trigger) return;
+
+      const wrapper =
+        trigger.closest('.ml-proof');
+
+      if (!wrapper) return;
+
+      const status =
+        wrapper.querySelector('.status');
+
+      if (!status) return;
+
+      const now =
+        new Date().toLocaleTimeString();
+
+      status.textContent =
+        'JS status: executed at ' + now;
+
+      console.log(
+        '[Meadowlark] delegated runtime fired',
+        now
+      );
+
+    });
+
+  </script>
+
 </section>
 <!-- /wp:html -->
 
