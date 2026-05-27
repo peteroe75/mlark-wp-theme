@@ -59,9 +59,13 @@ Yes, this creates an “unmaintainable professional PHP environment.” However,
 
 ### HTML / JS
 
-You build pages with HTML. You use the native WordPress post and page editor to publish. That’s it.
+NEW FOR WP 7.0
 
-If you want JS advanced functions, you can write them inline or amend them to the static header/footer files in the theme root.
+New "CustomHTML" block has tabbed interface for adding HTML/JS/CSS on a per block basis nativly. As of 5/27/2026 I am not touching it as I fear it could break backwards compatability. 
+
+Bottomline, this feature is great for this theme! It is just to early for me to do anything now. 
+
+Try it out, you will see, Native JS Facility!
 
 ---
 
