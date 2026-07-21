@@ -34,16 +34,18 @@ It also allows the old-hat web developers to build how they want in HTML/CSS/JS 
 - **site.css**  
   THIS IS SITE SPECIFIC, this defines “this site’s” global CSS
 
-- **headgfoot.css**  
-  This defines header and footer CSS, basically the last styles before the actual page
+- **headfoot.css**  
+  This defines header and footer CSS, basically the last styles before the actual page. Optionally use CSS area of WP code block.
 
 - **Page CSS**  
-  This is where you write complex page section css for the html, You literally make css code blocks in the wordpress page editor and inline that pages css.
+  This is where you write complex page section css for the html, NEW WITH WP 7.0 NATIVE CSS Area of code block can be used
 
 
 That is it. You are free to make as much as you want global, but modern web has so many one-off sections we end up rewriting it all anyway per section.
 
 A strategy can be just inlining on a per-page basis. Posts are not the same—you will have some sort of global `post.css` / `product.css`.
+
+.mlark-wrap and .mlark-const are setup out of the box to provide basic viewwidth boilerplate. 
 
 ---
 
@@ -63,9 +65,9 @@ NEW FOR WP 7.0
 
 New "CustomHTML" block has tabbed interface for adding HTML/JS/CSS on a per block basis nativly. As of 5/27/2026 I am not touching it as I fear it could break backwards compatability. 
 
-Bottomline, this feature is great for this theme! It is just to early for me to do anything now. 
+7/21/2026:
 
-Try it out, you will see, Native JS Facility!
+Updating theme to fully support new block type. It really makes this theme work much cleaner and more safely! 
 
 ---
 
