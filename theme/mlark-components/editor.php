@@ -1,58 +1,96 @@
 <?php
 defined('ABSPATH') || exit;
 
+/**
+ * Register published section components as block patterns.
+ */
 add_action('init', function () {
 
-    // Register category first
     register_block_pattern_category(
         'meadowlark',
-        ['label' => 'Meadowlark Components']
+        [
+            'label' => 'Meadowlark Components',
+        ]
     );
 
     $components = get_posts([
         'post_type'      => 'component',
         'post_status'    => 'publish',
         'posts_per_page' => -1,
+        'orderby'        => 'title',
+        'order'          => 'ASC',
         'meta_query'     => [
             [
-                'key'   => 'component_role',
-                'value' => 'section',
-            ]
-        ]
+                'key'     => 'component_role',
+                'value'   => 'section',
+                'compare' => '=',
+            ],
+        ],
     ]);
 
-    if (!$components) return;
+    if (!$components) {
+        return;
+    }
 
     foreach ($components as $component) {
 
         $slug    = sanitize_title($component->post_name);
-        $title   = esc_html($component->post_title);
+        $title   = $component->post_title;
         $content = trim($component->post_content);
 
-        if ($content === '') continue;
+        if ($slug === '' || $content === '') {
+            continue;
+        }
 
-        // COPY
-      register_block_pattern(
-    "meadowlark/component-copy-{$slug}",
-    [
-        'title'      => "Component: {$title}",
-        'categories' => ['meadowlark'],
-        'description' => 'Live reference to a Component. JavaScript and CSS are rendered from the Component editor and cannot be edited inline.',
-		'postTypes'  => ['post', 'page'],
-        'content' => wp_kses_post($component->post_content),
-    ]
-);
+        /*
+         * Preserve components already using Gutenberg block syntax.
+         *
+         * Older components containing only raw HTML are converted into
+         * a Custom HTML block when inserted from the pattern library.
+         */
+        if (has_blocks($content)) {
+            $copy_content = $content;
+        } else {
+            $copy_content =
+                "<!-- wp:html -->\n" .
+                $content .
+                "\n<!-- /wp:html -->";
+        }
 
+        /*
+         * COPY PATTERN
+         */
+        register_block_pattern(
+            "meadowlark/component-copy-{$slug}",
+            [
+                'title'       => "Component: {$title}",
+                'categories'  => ['meadowlark'],
+                'description' => 'Editable copy of this Component. Changes do not affect the original Component.',
+                'postTypes'   => ['post', 'page'],
+                'content'     => $copy_content,
+            ]
+        );
 
-        // LIVE
+        /*
+         * LIVE PATTERN
+         *
+         * Inserts the component shortcode as a real Shortcode block,
+         * instead of inserting it as inline paragraph content.
+         */
+        $live_content =
+            "<!-- wp:shortcode -->\n" .
+            '[component slug="' . esc_attr($slug) . '"]' .
+            "\n<!-- /wp:shortcode -->";
+
         register_block_pattern(
             "meadowlark/component-live-{$slug}",
-           [
-        'title'      => "Component (Live): {$title}",
-        'categories' => ['meadowlark'],
-		'postTypes'  => ['post', 'page'],
-        'content'    => "[component slug=\"{$slug}\"]",
-    ]
+            [
+                'title'       => "Component (Live): {$title}",
+                'categories'  => ['meadowlark'],
+                'description' => 'Live reference to the original Component. Editing the Component updates every reference.',
+                'postTypes'   => ['post', 'page'],
+                'content'     => $live_content,
+            ]
         );
     }
 });
