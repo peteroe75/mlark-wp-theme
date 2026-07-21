@@ -65,25 +65,6 @@ add_action('init', function () {
     ]);
 });
 
-/**
- * Example pattern
- */
-add_action('init', function () {
-
-    register_block_pattern(
-        'meadowlark/hero',
-        [
-            'title'   => 'Hero Section',
-            'content' => '
-<!-- HERO -->
-<div class="wp-block-group is-style-section">
-  <h1>Hero headline</h1>
-  <p>Supporting copy goes here.</p>
-</div>
-'
-        ]
-    );
-});
 
 
 
@@ -158,39 +139,23 @@ add_action('admin_notices', function () {
     }
 
     ?>
-    <div class="notice notice-success is-dismissible">
-        <p><strong>Welcome to Meadowlark Skeleton Theme</strong></p>
+      <div class="notice notice-success is-dismissible">
+        <p><strong>Welcome to Meadowlark Skeleton Theme V2.0</strong></p>
 
         <p>
             This theme is designed for building sites with native HTML, CSS, and JavaScript —
             without page builders.
         </p>
 
-        <p>
-            <strong>Important note:</strong><br>
-            When content is copied into pages or posts, WordPress removes JavaScript and CSS tags
-            as part of standard content handling.
-        </p>
-
-        <p>
-            Sections that include JavaScript or CSS should be saved as
-            <strong>Components</strong> and inserted using the
-            <strong>Live Component</strong> pattern or the
-            <code>[component]</code> shortcode.
-        </p>
 
  <p>
          <strong><code>[component]</code>s are insertable into pages/posts within the PATTERN section of the block editor</strong>
-            
-        </p>
-        
-        <p>
-            JavaScript and CSS saved to the <strong>Component</strong> post type will render
-            correctly on the frontend and within the Component editor.
-        </p>
 
-        <p>
-            Other than that — copy, paste, experiment, and build.<br>
+        </p>
+<br>
+<p><strong>WordPress 7.0 Native HTML/CSS/JS Blocks are supported by default in all areas!</strong></p>
+
+<br>
             <em>Return to primitives. Have fun.</em>
         </p>
     </div>
