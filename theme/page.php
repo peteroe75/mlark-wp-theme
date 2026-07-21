@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <main id="content">
-<div class="mlark-wrap">
+<div class="mlark-const">
 
 
         <?php
