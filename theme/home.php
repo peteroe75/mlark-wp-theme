@@ -2,7 +2,7 @@
 
 <main class="blog-home">
 
-  <div class="mlark-wrap">
+  <div class="mlark-const">
 
     <?php
     // Get the ID of the assigned Posts page
